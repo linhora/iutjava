@@ -1,6 +1,8 @@
 package edu.iut.gui.widget.agenda;
 
 import java.awt.GridLayout;
+import java.util.ResourceBundle;
+
 import javax.swing.JPanel;
 
 
@@ -12,13 +14,13 @@ public class WeekPanel extends EventPanel {
 	// Exercice 4
 	public enum WeekDayNames {
 		EMPTYDAY("",""),
-		MONDAY(/* Internationalisation */),
-		TUESDAY(/* Internationalisation */),
-		WEDNESDAY(/* Internationalisation */),
-		THURSDAY(/* Internationalisation */),
-		FRIDAY(/* Internationalisation */),
-		SATURDAY(/* Internationalisation */),
-		SUNDAY(/* Internationalisation */);
+		MONDAY(ApplicationSession.instance().getString("monday"),ApplicationSession.instance().getString("mon")/* Internationalisation */),
+		TUESDAY(ApplicationSession.instance().getString("tuesday"),ApplicationSession.instance().getString("tue")/* Internationalisation */),
+		WEDNESDAY(ApplicationSession.instance().getString("wednesday"),ApplicationSession.instance().getString("wed")/* Internationalisation */),
+		THURSDAY(ApplicationSession.instance().getString("thursday"),ApplicationSession.instance().getString("thu")/* Internationalisation */),
+		FRIDAY(ApplicationSession.instance().getString("friday"),ApplicationSession.instance().getString("fri")/* Internationalisation */),
+		SATURDAY(ApplicationSession.instance().getString("saturday"),ApplicationSession.instance().getString("sat")/* Internationalisation */),
+		SUNDAY(ApplicationSession.instance().getString("sunday"),ApplicationSession.instance().getString("sun")/* Internationalisation */);
 		
 		private String name;
 		private String shortName;
@@ -41,7 +43,7 @@ public class WeekPanel extends EventPanel {
 		super(ActiveView.WEEK_VIEW);
 		GridLayout daysOfWeekLayout = new GridLayout(1,7);		
 		this.setLayout(daysOfWeekLayout);
-		for (int di = 0;di<8;di++)	{
+		for (int di = 0;di<7;di++)	{
 			this.add(new DayPanel(ActiveView.WEEK_VIEW,WeekDayNames.values()[di+1]));
 		}
 	}

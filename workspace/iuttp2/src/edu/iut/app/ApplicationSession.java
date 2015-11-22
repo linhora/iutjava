@@ -17,17 +17,17 @@ public class ApplicationSession {
 	protected Logger sessionExceptionLogger;
 
 
-	private /*Qu'est ce qu'un singleton ?*/ ApplicationSession session = null;
+	private /*Qu'est ce qu'un singleton ?*/static ApplicationSession session = null;
 	private ApplicationSession() {
 		/* Definir US comme locale par défaut */
-		Locale.setDefault(Locale.US);;/* à compléter */
+		Locale.setDefault(Locale.US);/* à compléter */
 		
 		locale = Locale.getDefault();
-		resourceBundle = /* à compléter */ResourceBundle.getBundle("edu.iut.resources.strings");
-		sessionGuiLogger = /* Initialiser le logger */;
-		sessionGuiLogger.setLevel(/* Touls les message doivent être affiché */));
-		sessionExceptionLogger = /* Logger pour exception */
-		sessionExceptionLogger.setLevel(/* Touls les message doivent être affiché */);
+		resourceBundle = /* à compléter */ResourceBundle.getBundle("edu.iut.resources.strings.res");
+		sessionGuiLogger = /* Initialiser le logger */Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+		sessionGuiLogger.setLevel(Level.ALL/* Touls les message doivent être affiché */);
+		sessionExceptionLogger = /* Logger pour exception */Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+		sessionExceptionLogger.setLevel(Level.ALL/* Touls les message doivent être affiché */);
 	}
 	
 	
@@ -48,7 +48,7 @@ public class ApplicationSession {
 	public void setLocale(Locale locale){
 		this.locale = locale;
 		Locale.setDefault(this.locale);
-		resourceBundle=/* récupérer les resources */
+		resourceBundle= ResourceBundle.getBundle("edu.iut.resources.strings.res");/* récupérer les resources */
 	}
 	
 	public String getString(String key) {
