@@ -26,7 +26,7 @@ public class ApplicationSession {
 		resourceBundle = /* à compléter */ResourceBundle.getBundle("edu.iut.resources.strings.res");
 		sessionGuiLogger = /* Initialiser le logger */Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 		sessionGuiLogger.setLevel(Level.ALL/* Touls les message doivent être affiché */);
-		sessionExceptionLogger = /* Logger pour exception */Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+		sessionExceptionLogger = /* Logger pour exception */Logger.getLogger("IUTException");
 		sessionExceptionLogger.setLevel(Level.ALL/* Touls les message doivent être affiché */);
 	}
 	
