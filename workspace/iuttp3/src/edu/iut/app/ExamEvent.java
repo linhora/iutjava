@@ -18,5 +18,53 @@ public class ExamEvent {
 	protected ArrayList<Person> jury;
 	protected Classroom classroom;
 	protected ArrayList<Document> documents;
+	
+	public Date getExamDate() {
+		return examDate;
+	}
+
+	public void setExamDate(Date examDate) {
+		this.examDate = examDate;
+	}
+
+	public Person getStudent() {
+		return student;
+	}
+
+	public void setStudent(Person student) {
+		this.student = student;
+	}
+
+	public ArrayList<Person> getJury() {
+		return jury;
+	}
+
+	public void setJury(ArrayList<Person> jury) {
+		this.jury = jury;
+	}
+	
+	public void addJury(Person jury){
+		this.jury.add(jury);
+	}
+
+	public Classroom getClassroom() {
+		return classroom;
+	}
+
+	public void setClassroom(Classroom classroom) {
+		this.classroom = classroom;
+	}
+
+	public ArrayList<Document> getDocuments() {
+		return documents;
+	}
+
+	public void setDocuments(ArrayList<Document> documents) {
+		this.documents = documents;
+	}
+	
+	public void addDocuments(Document documents){
+		this.documents.add(documents);
+	}
 	 
 }

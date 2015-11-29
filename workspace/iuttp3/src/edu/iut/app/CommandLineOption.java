@@ -22,13 +22,12 @@ public class CommandLineOption /* EX1 : CLASSE GENERIC SUR le type ValueType */<
 	
 	public CommandLineOption() {		
 		/* EX1: Initializer les attributs */
+		this.optionType = optionType.NOVALUE;
 	}
 	public CommandLineOption(final OptionType optionType, final String key, final String description, final ValueType defaultValue) {
 		/* EX1 : Affecter les attributs */
-		this.optionType = optionType;
-		this.key = key;
-		this.description = description;
-		this.defaultValue = defaultValue;
+		super();
+		setOption(optionType, key, description, defaultValue);
 	}
 	public void setOption(OptionType optionType, String key, String description, ValueType defaultValue) {
 		/* EX1 : Affecter les attributs */
@@ -36,6 +35,7 @@ public class CommandLineOption /* EX1 : CLASSE GENERIC SUR le type ValueType */<
 		this.key = key;
 		this.description = description;
 		this.defaultValue = defaultValue;
+		this.value = defaultValue;
 	}
 	public  void setValue(ValueType value) {
 		this.value = value;

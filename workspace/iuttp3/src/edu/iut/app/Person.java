@@ -28,7 +28,13 @@ public class Person {
 				  String lastname,
 				  String email,
 				  String phone) {
-		/* EX2: initialisation */;
+		/* EX2: initialisation */
+		super();
+		this.personFunction = personFunction;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+		this.phone = phone;
 	}
 	
 	public void setFunction(PersonFunction function) {

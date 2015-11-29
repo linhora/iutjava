@@ -7,6 +7,8 @@ public class Document {
 	}
 	public Document(String documentURI) {
 		/* EX2 : Affectation */
+		super();
+		this.documentURI = documentURI;
 	}
 	
 	public void setDocumentURI(String number) {
