@@ -20,26 +20,48 @@ public class ControlAgendaViewPanel extends JPanel {
 
 	CardLayout agendaViewLayout;
 	JPanel contentPane;
-	
+
 	int selectedYear;
 	int selectedMonth;
 	int selectedDay;
-	
+
 	public ControlAgendaViewPanel(CardLayout layerLayout, final JPanel contentPane) {
 
 		this.agendaViewLayout = layerLayout;
 		this.contentPane = contentPane;
 		/** EX3: REMPLACEMENT DU BOUTON NEXT */
+		Calendar calendar = Calendar.getInstance();
+
+		JComboBox<String> days = new JComboBox<String>();
+		for (String d : ApplicationSession.instance().getDays()) {
+			days.addItem(d);
+		}
+		days.setSelectedItem(Calendar.DAY_OF_WEEK);
+		this.add(days);
+
+		JComboBox<String> months = new JComboBox<String>();
+		for (String m : ApplicationSession.instance().getMonths()) {
+			months.addItem(m);
+		}
+		months.setSelectedItem(ApplicationSession.instance().getMonths()[calendar.get(Calendar.MONTH)]);
+		this.add(months);
+
+		int currentYear = calendar.get(Calendar.YEAR);
+		JSpinner spinner = new JSpinner(new SpinnerNumberModel(currentYear, 2010, 2020, 1));
+
+		this.add(spinner);
 	}
-	
+
 	public int getYear() {
 		return selectedYear;
 	}
+
 	public int getMonth() {
 		return selectedMonth;
 	}
+
 	public int getDay() {
 		return selectedDay;
 	}
-	
+
 }

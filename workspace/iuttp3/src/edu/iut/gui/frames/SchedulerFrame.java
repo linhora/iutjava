@@ -3,6 +3,7 @@ package edu.iut.gui.frames;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -52,8 +53,80 @@ public class SchedulerFrame extends JFrame {
 		/* File Menu */
 		/** EX4 : MENU : UTILISER L'AIDE FOURNIE DANS LE TP**/
 		
+
+		ActionListener listener = new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(contentPane, "La fonctionnalité n'est pas encore implémentée");
+			}
+		};
 		
 		menu = new JMenu("File");
+
+		menuBar.add(menu);
+
+		menuItem = new JMenuItem("Load");
+		menu.add(menuItem);
+		menuItem.addActionListener(listener);
+
+		menuItem = new JMenuItem("Save");
+		menu.add(menuItem);
+		menuItem.addActionListener(listener);
+
+		menuItem = new JMenuItem("Quit");
+		menu.add(menuItem);
+		menuItem.addActionListener(listener);
+
+		menu = new JMenu("Edit");
+
+		menuBar.add(menu);
+
+		JMenu sousMenu = new JMenu("View");
+		menu.add(sousMenu);
+
+		JMenuItem menuItem2 = new JMenuItem("Month");
+		sousMenu.add(menuItem2);
+		menuItem2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				layerLayout.show(contentPane, ActiveView.MONTH_VIEW.name());
+			}
+		});
+
+		menuItem2 = new JMenuItem("Week");
+		sousMenu.add(menuItem2);
+		menuItem2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				layerLayout.show(contentPane, ActiveView.WEEK_VIEW.name());
+			}
+		});
+
+		menuItem2 = new JMenuItem("Day");
+		sousMenu.add(menuItem2);
+		menuItem2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				layerLayout.show(contentPane, ActiveView.DAY_VIEW.name());
+			}
+		});
+
+		menu = new JMenu("Help");
+
+		menuBar.add(menu);
+
+		menuItem = new JMenuItem("Display");
+		menu.add(menuItem);
+		menuItem.addActionListener(listener);
+
+		menuItem = new JMenuItem("About");
+		menu.add(menuItem);
+		menuItem.addActionListener(listener);
+
 		
 		
 		this.setJMenuBar(menuBar);
