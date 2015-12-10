@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
+import edu.iut.app.ExamEvent;
 import edu.iut.gui.listeners.*;
 
 import edu.iut.gui.widget.agenda.AgendaPanelFactory;
@@ -28,6 +30,7 @@ public class SchedulerFrame extends JFrame {
 	JPanel dayView;
 	JPanel weekView;
 	JPanel monthView;
+	public static ArrayList<ExamEvent> listEvent;
 	
 	protected void setupUI() {
 		
