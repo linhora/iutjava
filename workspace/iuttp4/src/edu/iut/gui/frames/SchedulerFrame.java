@@ -42,7 +42,6 @@ public class SchedulerFrame extends JFrame {
 		
 		contentPane.add(dayView,ActiveView.DAY_VIEW.name());
 		contentPane.add(weekView,ActiveView.WEEK_VIEW.name());
-		contentPane.add(monthView,ActiveView.MONTH_VIEW.name());
 	
 		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,agendaViewPanel, contentPane);
 		this.setContentPane(splitPane);
@@ -98,14 +97,6 @@ public class SchedulerFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				layerLayout.show(contentPane,ActiveView.WEEK_VIEW.name());		
-			}			
-		});		
-		submenu.add(menuItem);
-		menuItem = new JMenuItem("Month");
-		menuItem.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				layerLayout.show(contentPane,ActiveView.MONTH_VIEW.name());		
 			}			
 		});		
 		submenu.add(menuItem);
