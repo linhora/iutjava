@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -13,6 +14,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import edu.iut.gui.listeners.*;
 
@@ -58,7 +60,26 @@ public class SchedulerFrame extends JFrame {
 		menuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				JOptionPane.showMessageDialog(null, "Not yet implemented", "info", JOptionPane.INFORMATION_MESSAGE, null);		
+				//JOptionPane.showMessageDialog(null, "Not yet implemented", "info", JOptionPane.INFORMATION_MESSAGE, null);		
+				JFileChooser choix = new JFileChooser();
+				choix.setFileSelectionMode(JFileChooser.FILES_ONLY);
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("XML Files", "xml");
+				choix.setFileFilter(filter);
+				int retour=choix.showOpenDialog(null);
+				if(retour==JFileChooser.APPROVE_OPTION){
+				   // un fichier a été choisi (sortie par OK)
+				   // nom du fichier  choisi 
+				   System.out.println("Nom du fichier :"+choix.getSelectedFile().getName());
+				   // chemin absolu du fichier choisi
+				   System.out.println("Chemin du fichier : "+choix.getSelectedFile().getAbsolutePath());
+				}else {
+					System.out.println("Pas de fichiers choisi");
+				}// pas de fichier choisi
+				
+
+				/// Appeler ici le XMLProjectReader en y indiquant le chemin du fichier choisi pour y charger le fichier xml
+				
+				
 			}			
 		});
 		menu.add(menuItem);
@@ -67,7 +88,22 @@ public class SchedulerFrame extends JFrame {
 		menuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				JOptionPane.showMessageDialog(null, "Not yet implemented", "info", JOptionPane.INFORMATION_MESSAGE, null);		
+				JFileChooser choix = new JFileChooser();
+				choix.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				int retour=choix.showOpenDialog(null);
+				if(retour==JFileChooser.APPROVE_OPTION){
+				   // un fichier a été choisi (sortie par OK)
+				   // nom du fichier  choisi 
+				   System.out.println("Nom du dossier :"+choix.getSelectedFile().getName());
+				   // chemin absolu du fichier choisi
+				   System.out.println("Chemin du dossier : "+choix.getSelectedFile().getAbsolutePath());
+				}else {
+					System.out.println("Pas de dossier choisi");
+				}// pas de fichier choisi
+				
+				/// Appeler ici le XMLProjectWritter en y indiquant le chemin du dossier choisi pour y sauvegarder le fichier xml
+				
+				JOptionPane.showMessageDialog(null, "Fichier sauvegardé dans le dossier", "info", JOptionPane.INFORMATION_MESSAGE, null);		
 			}			
 		});
 		menu.add(menuItem);
