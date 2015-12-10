@@ -41,15 +41,21 @@ public class XMLProjectWriter {
 			root.appendChild(comment);
 			for(ExamEvent ee : data){
 				Element event = document.createElement("event");
-				event.setAttribute("Date", ee.getDate().toString());
+				event.setAttribute("date", ee.getDate().toString());
 				Element student = document.createElement("student");
+				student.setAttribute("function", ee.getStudent().getFunction().name());
 				student.setAttribute("firstname", ee.getStudent().getFirstname());
 				student.setAttribute("lastname", ee.getStudent().getLastname());
+				student.setAttribute("email", ee.getStudent().getEmail());
+				student.setAttribute("phone", ee.getStudent().getPhone());
 				event.appendChild(student);
 				for(int i=0; i<ee.getJury().size();i++){
 					Element jury = document.createElement("jury");
+					jury.setAttribute("function", ee.getJury().get(i).getFunction().name());
 					jury.setAttribute("firstname", ee.getJury().get(i).getFirstname());
 					jury.setAttribute("lastname", ee.getJury().get(i).getLastname());
+					jury.setAttribute("email", ee.getJury().get(i).getEmail());
+					jury.setAttribute("phone", ee.getJury().get(i).getPhone());
 					jury.appendChild(jury);
 				}
 				Element classroom = document.createElement("classroom");
