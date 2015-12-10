@@ -77,6 +77,7 @@ public class AjoutEvenementPanel {
 					ex.printStackTrace();
 				}
 				((JFrame)((JButton)e.getSource()).getParent().getParent().getParent().getParent().getParent()).dispose();
+				System.out.println(SchedulerFrame.listEvent);
 			}
 		});
         panel.add(button);

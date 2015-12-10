@@ -30,7 +30,7 @@ public class SchedulerFrame extends JFrame {
 	JPanel dayView;
 	JPanel weekView;
 	JPanel monthView;
-	public static ArrayList<ExamEvent> listEvent;
+	public static ArrayList<ExamEvent> listEvent=new ArrayList<>();
 	
 	protected void setupUI() {
 		
