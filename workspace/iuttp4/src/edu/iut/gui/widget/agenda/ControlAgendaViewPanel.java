@@ -55,7 +55,7 @@ public class ControlAgendaViewPanel extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				SchedulerFrame.listEvent.add(AjoutEvenementPanel.creerEvenement());
+				AjoutEvenementPanel.showEventCreate();
 			}
 		});
 		commandPanel.add(yearsSpinner);
